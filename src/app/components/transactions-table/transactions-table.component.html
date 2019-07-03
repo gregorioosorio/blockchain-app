@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <h3 *ngIf="blockIndex >= 0">Transactions inside <i>Block # {{ blockIndex }}</i></h3>
+    <div *ngIf="!transactions || transactions.length <= 0">
+      <p><i>There are not transactions to list.</i></p>
+    </div>
+    <div *ngIf="transactions && transactions.length > 0">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>From Address</th>
+            <th>To Address</th>
+            <th>Amount</th>
+            <th>Timestamp</th>
+            <th>Is valid?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let tx of transactions; let i = index;">
+            <td>{{ i + 1 }}</td>
+            <td *ngIf="tx.fromAddress === 'system'">system</td>
+            <td *ngIf="tx.fromAddress && tx.fromAddress !== 'system'">{{ tx.fromAddress.substring(0,18) }}</td>
+            <td *ngIf="!tx.fromAddress">(not defined)</td>
+            <td *ngIf="tx.toAdress">{{ tx.toAdress.substring(0,18) }}</td>
+            <td *ngIf="!tx.toAdress">(not defined)</td>
+            <td>{{ tx.amount }}</td>
+            <td>{{ tx.timestamp }} <div> <small class="text-muted">{{ tx.timestamp | date:'MMM d, y, HH:mm' }}</small> </div></td>
+            <td *ngIf="tx.isValid()"><i class="glyphicon glyphicon-ok"></i></td>
+            <td *ngIf="!tx.isValid()"><i class="glyphicon glyphicon-remove"></i></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

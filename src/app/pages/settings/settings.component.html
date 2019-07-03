@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>Settings</h1>
+  <p>Application settings. The changes are automatically saved.</p>
+</div>
+
+<br>
+
+<div class="container">
+  <div class="form-group">
+    <label for="dificulty">Dificulty</label>
+    <input id="dificulty"
+      class="form-control"
+      aria-describedby="difficultyHelp"
+      type="text"
+      [(ngModel)]="blockchain.dificulty">
+    <small id="difficultyHelp" class="form-text text-muted">
+      Represents the number of zeros the hash of the block must starts with.
+    </small>
+  </div>
+
+  <div class="form-group">
+    <label for="miningReward">Mining reward</label>
+    <input
+      id="miningReward"
+      class="form-control"
+      aria-describedby="miningRewardHelp"
+      type="text"
+      [(ngModel)]="blockchain.rewardForMiner">
+    <small id="miningRewardHelp" class="form-text text-muted">
+      Represents how many coins are giving as a reward to the miner.
+    </small>
+  </div>
+
+</div>

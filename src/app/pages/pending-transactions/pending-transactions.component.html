@@ -1,0 +1,25 @@
+<div class="container">
+
+  <div class="alert alert-success" role="alert" *ngIf="justAddedTx">
+    Transaction created successfully!
+  </div>
+
+  <h1>Pending transactions</h1>
+  <p>These are the pending transactions.</p>
+</div>
+
+<br>
+
+<div class="container">
+  <app-transactions-table [transactions]="transactions" [blockIndex]="-1">
+  </app-transactions-table>
+</div>
+<div class="container">
+  <button [disabled]="!transactions || transactions.length <= 0" class="btn btn-primary"
+    (click)="mineTransactions()">Mine transactions</button>
+</div>
+
+<div *ngIf="isMining" class="container">
+  <br>
+  <p>Mining transactions, please wait...</p>
+</div>

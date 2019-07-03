@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Blockchain</h1>
+  <p>These are the block in this blockchain implementations. Click on each of them to see the transactions inside.</p>
+</div>
+
+<br>
+
+<div class="container" style="overflow-x: scroll;white-space: nowrap;">
+  <app-block-detail
+    *ngFor="let block of chain; let i = index"
+    [block]="block"
+    [i]="i"
+    [selectedBlock]="i === selectedBlockIndex"
+    (click)="showBlockTransactions(block)">
+  </app-block-detail>
+</div>
+
+<br>
+
+<div class="container">
+  <app-transactions-table
+    [transactions]="selectedBlock.transactions"
+    [blockIndex]="selectedBlockIndex">
+  </app-transactions-table>
+</div>
