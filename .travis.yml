@@ -15,13 +15,12 @@ install:
   - npm install
 
 script:
-  - npm run lint
   - npm run prod
 
 deploy:
   provider: pages
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
-  local_dir: dist/savjeecoin-frontend
+  local_dir: dist/blockchain-app
   on:
     branch: master
