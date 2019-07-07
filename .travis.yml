@@ -15,7 +15,6 @@ install:
   - npm install
 
 script:
-  - ng test
   - npm run prod
 
 deploy:
