@@ -17,7 +17,6 @@ install:
   - npm install
 
 script:
-  - npm run test-headless
   - npm run prod
 
 deploy:
