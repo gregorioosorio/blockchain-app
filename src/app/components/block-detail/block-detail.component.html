@@ -1,4 +1,4 @@
-<div class="panel panel-default" [class.panel-primary]="selectedBlock">
+<div  *ngIf="block" class="panel panel-default" [class.panel-primary]="selectedBlock">
   <div class="panel-heading">
     <h3 class="panel-title">Block # {{ i }}<small class="text-muted" *ngIf="i == 0"> (genesis block)</small></h3>
   </div>

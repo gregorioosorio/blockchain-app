@@ -9,7 +9,7 @@ import { Block } from 'educational-blockchain/blockchain';
 })
 export class BlockDetailComponent implements OnInit {
 
-  @Input() i : number;
+  @Input() i: number;
   @Input() block: Block;
   @Input() selectedBlock: boolean;
 
